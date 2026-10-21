@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Events')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+<main>
+  <h1>Events</h1>
+  <section>
+    <h2>Upcoming events</h2>
+    <ul>
+      <li><a th:href="@{/events/{id}(id=1)}">Example event</a></li>
+    </ul>
+  </section>
+  <section>
+    <h2>Past events</h2>
+    <ul>
+      <li><a th:href="@{/events/{id}(id=2)}">Example past event</a></li>
+    </ul>
+  </section>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

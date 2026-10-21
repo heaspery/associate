@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head(title)">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title th:text="|${title} · ${association.name}|">Page · Association</title>
+</head>
+
+<body>
+
+<header th:fragment="header">
+  <a th:href="@{/}" th:text="${association.name}">Association</a>
+  <nav>
+    <ul>
+      <li><a th:href="@{/}">Home</a></li>
+      <li><a th:href="@{/events}">Events</a></li>
+      <li><a th:href="@{/about}">About us</a></li>
+      <li><a th:href="@{/contact}">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<nav th:fragment="admin-nav">
+  <ul>
+    <li><a th:href="@{/admin/events}">Manage events</a></li>
+    <li><a th:href="@{/admin/events/new}">New event</a></li>
+  </ul>
+</nav>
+
+<footer th:fragment="footer">
+  <p th:text="${association.name}">Association</p>
+  <ul>
+    <li><a th:href="@{/contact}">Contact us</a></li>
+    <li><a th:href="@{/login}">Member login</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>

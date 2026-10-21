@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Home')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+<main>
+  <h1 th:text="${association.name}">Association</h1>
+  <section>
+    <p th:text="${association.description}">Description</p>
+  </section>
+  <section>
+    <h2>Our values</h2>
+    <ul>
+      <li th:each="value : ${association.values}" th:text="${value}">Value</li>
+    </ul>
+  </section>
+  <section>
+    <h2>Upcoming events</h2>
+    <p>The next events will be listed here.</p>
+    <a th:href="@{/events}">See all events</a>
+  </section>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

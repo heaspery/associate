@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Manage events')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+<nav th:replace="~{fragments/layout :: admin-nav}"></nav>
+<main>
+  <h1>Manage events</h1>
+  <a th:href="@{/admin/events/new}">Create an event</a>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Date</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Example event</td>
+        <td>Event date</td>
+        <td>
+          <a th:href="@{/admin/events/{id}/edit(id=1)}">Edit</a>
+          <form th:action="@{/admin/events/{id}/delete(id=1)}" method="post">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

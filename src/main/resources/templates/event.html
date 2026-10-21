@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Event')}"></head>
+<body>
+<header th:replace="~{fragments/layout :: header}"></header>
+<main>
+  <article>
+    <h1 th:text="|Event #${id}|">Event title</h1>
+    <dl>
+      <dt>Date</dt>
+      <dd>Event date</dd>
+      <dt>Location</dt>
+      <dd>Event location</dd>
+    </dl>
+    <p>Event description.</p>
+  </article>
+  <a th:href="@{/events}">Back to all events</a>
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>
