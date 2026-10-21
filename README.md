@@ -67,7 +67,7 @@ The project is built in iterations.
 - Hosted builders: paid, limited, and foreign services that store data abroad.
 - Open-source CMS: too complex for such simple needs, relies on plugins, and is tedious to maintain.
 - Separate frontend / backend: unnecessary for low-traffic sites that need simple hosting and authentication.
-- Custom monolith: easy to host and maintain, with simple authentication. -> Choosen solution
+- Custom monolith: easy to host and maintain, with simple authentication. -> Chosen solution
 
 ### Tech stack
 Java / Spring Boot
