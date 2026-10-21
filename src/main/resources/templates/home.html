@@ -1,24 +1,126 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/layout :: head('Home')}"></head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <header th:replace="~{fragments/layout :: header}"></header>
 <main>
-  <h1 th:text="${association.name}">Association</h1>
-  <section>
-    <p th:text="${association.description}">Description</p>
+
+  <section class="position-relative bg-dark text-white">
+    <img th:src="@{/images/hero.jpg}" alt=""
+         class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover">
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-black bg-opacity-50"></div>
+    <div class="container position-relative py-5">
+      <div class="col-lg-8 py-5 my-lg-5">
+        <h1 class="display-4 fw-bold" th:text="${association.name}">Association</h1>
+        <p class="lead my-4" th:text="${association.description}">Description</p>
+        <div class="d-flex flex-wrap gap-2">
+          <a class="btn btn-primary btn-lg" th:href="@{/events}">See our events</a>
+          <a class="btn btn-outline-light btn-lg" th:href="@{/contact}">Get in touch</a>
+        </div>
+      </div>
+    </div>
   </section>
-  <section>
-    <h2>Our values</h2>
-    <ul>
-      <li th:each="value : ${association.values}" th:text="${value}">Value</li>
-    </ul>
+
+  <section class="container py-5">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <h2 class="fw-bold mb-3">Who we are</h2>
+        <p class="lead">We are a group of volunteers who believe that great things happen when people come together.</p>
+        <p>Everyone is welcome, whatever their age, background or experience. Come to an event, meet the members,
+          and join at your own pace: one afternoon a year or every week, every contribution counts.</p>
+        <a class="btn btn-outline-primary" th:href="@{/about}">Learn more about us</a>
+      </div>
+      <div class="col-lg-6">
+        <div class="row g-3 text-center">
+          <div class="col-6">
+            <div class="p-4 bg-body-tertiary rounded-3">
+              <p class="display-6 fw-bold text-primary mb-0">100%</p>
+              <p class="mb-0 text-body-secondary">volunteer-run</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="p-4 bg-body-tertiary rounded-3">
+              <p class="display-6 fw-bold text-primary mb-0">Open</p>
+              <p class="mb-0 text-body-secondary">to everyone</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
-  <section>
-    <h2>Upcoming events</h2>
-    <p>The next events will be listed here.</p>
-    <a th:href="@{/events}">See all events</a>
+
+  <section class="bg-body-tertiary py-5">
+    <div class="container">
+      <h2 class="fw-bold text-center mb-2">Our values</h2>
+      <p class="text-center text-body-secondary mb-5">What guides everything we do.</p>
+      <div class="row g-4">
+        <div class="col-md-4" th:each="value : ${association.values}">
+          <div class="card h-100 border-0 shadow-sm text-center">
+            <div class="card-body p-4">
+              <h3 class="h5 card-title fw-semibold" th:text="${value}">Value</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
+
+  <section class="container py-5">
+    <div class="d-flex flex-wrap justify-content-between align-items-end gap-2 mb-4">
+      <div>
+        <h2 class="fw-bold mb-1">Upcoming events</h2>
+        <p class="text-body-secondary mb-0">Join us at our next gatherings.</p>
+      </div>
+      <a class="btn btn-link px-0" th:href="@{/events}">See all events →</a>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <span class="badge text-bg-primary mb-2">Saturday 14 November</span>
+            <h3 class="h5 card-title">Annual general meeting</h3>
+            <p class="card-text text-body-secondary">Review the year together and vote on next year's projects.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-sm btn-outline-primary" th:href="@{/events/{id}(id=1)}">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <span class="badge text-bg-primary mb-2">Sunday 6 December</span>
+            <h3 class="h5 card-title">Winter get-together</h3>
+            <p class="card-text text-body-secondary">A friendly afternoon to meet members old and new.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-sm btn-outline-primary" th:href="@{/events/{id}(id=2)}">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <span class="badge text-bg-primary mb-2">Saturday 16 January</span>
+            <h3 class="h5 card-title">Volunteer workshop</h3>
+            <p class="card-text text-body-secondary">Discover how you can help and find the role that suits you.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-sm btn-outline-primary" th:href="@{/events/{id}(id=3)}">Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container pb-5">
+    <div class="p-5 text-center bg-primary-subtle rounded-4">
+      <h2 class="fw-bold">Want to get involved?</h2>
+      <p class="lead mb-4">Whether you have one hour or one day to give, there is a place for you.</p>
+      <a class="btn btn-primary btn-lg" th:href="@{/contact}">Contact us</a>
+    </div>
+  </section>
+
 </main>
 <footer th:replace="~{fragments/layout :: footer}"></footer>
 </body>

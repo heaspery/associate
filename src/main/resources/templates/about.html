@@ -1,18 +1,70 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/layout :: head('About us')}"></head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <header th:replace="~{fragments/layout :: header}"></header>
-<main>
-  <h1>About our association</h1>
+<main class="container py-5">
+
+  <div class="col-lg-8 mb-5">
+    <h1 class="display-5 fw-bold">About us</h1>
+    <p class="lead text-body-secondary" th:text="${association.description}">Description</p>
+  </div>
+
+  <div class="row g-5 mb-5">
+    <section class="col-md-6">
+      <h2 class="h3 fw-bold">Our story</h2>
+      <p>The association was founded by a handful of friends who wanted to share what they loved with others.
+        What started as small, informal meetings has grown into a community of members and volunteers.</p>
+      <p>Today we organise events throughout the year, always with the same spirit: simple, friendly and open
+        to all.</p>
+    </section>
+    <section class="col-md-6">
+      <h2 class="h3 fw-bold">Our mission</h2>
+      <p>We bring people together around shared activities and create a space where everyone feels welcome.</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item px-0" th:each="value : ${association.values}" th:text="${value}">Value</li>
+      </ul>
+    </section>
+  </div>
+
   <section>
-    <h2>Our story</h2>
-    <p>How and why the association was founded.</p>
+    <h2 class="h3 fw-bold mb-4">Our committee</h2>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3">
+        <div class="card h-100 text-center shadow-sm">
+          <div class="card-body">
+            <h3 class="h6 card-title mb-1">First and last name</h3>
+            <p class="card-text text-body-secondary small">President</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card h-100 text-center shadow-sm">
+          <div class="card-body">
+            <h3 class="h6 card-title mb-1">First and last name</h3>
+            <p class="card-text text-body-secondary small">Vice-president</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card h-100 text-center shadow-sm">
+          <div class="card-body">
+            <h3 class="h6 card-title mb-1">First and last name</h3>
+            <p class="card-text text-body-secondary small">Treasurer</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3">
+        <div class="card h-100 text-center shadow-sm">
+          <div class="card-body">
+            <h3 class="h6 card-title mb-1">First and last name</h3>
+            <p class="card-text text-body-secondary small">Secretary</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
-  <section>
-    <h2>Our committee</h2>
-    <p>The people currently running the association.</p>
-  </section>
+
 </main>
 <footer th:replace="~{fragments/layout :: footer}"></footer>
 </body>

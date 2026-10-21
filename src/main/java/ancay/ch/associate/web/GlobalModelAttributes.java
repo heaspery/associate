@@ -1,5 +1,7 @@
 package ancay.ch.associate.web;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -17,6 +19,11 @@ public class GlobalModelAttributes {
     @ModelAttribute("association")
     public AssociationProperties association() {
         return association;
+    }
+
+    @ModelAttribute("currentPath")
+    public String currentPath(HttpServletRequest request) {
+        return request.getRequestURI();
     }
 
 }

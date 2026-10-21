@@ -5,35 +5,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title th:text="|${title} · ${association.name}|">Page · Association</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+  <script defer th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </head>
 
 <body>
 
 <header th:fragment="header">
-  <a th:href="@{/}" th:text="${association.name}">Association</a>
-  <nav>
-    <ul>
-      <li><a th:href="@{/}">Home</a></li>
-      <li><a th:href="@{/events}">Events</a></li>
-      <li><a th:href="@{/about}">About us</a></li>
-      <li><a th:href="@{/contact}">Contact</a></li>
-    </ul>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-semibold" th:href="@{/}" th:text="${association.name}">Association</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+              aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="main-nav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/}"
+               th:classappend="${currentPath == '/'} ? 'active'"
+               th:aria-current="${currentPath == '/'} ? 'page'">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/about}"
+               th:classappend="${currentPath == '/about'} ? 'active'"
+               th:aria-current="${currentPath == '/about'} ? 'page'">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/events}"
+               th:classappend="${currentPath.startsWith('/events')} ? 'active'"
+               th:aria-current="${currentPath.startsWith('/events')} ? 'page'">Events</a>
+          </li>
+        </ul>
+        <a class="btn btn-outline-primary btn-sm" th:href="@{/contact}">Contact us</a>
+      </div>
+    </div>
   </nav>
 </header>
 
-<nav th:fragment="admin-nav">
-  <ul>
-    <li><a th:href="@{/admin/events}">Manage events</a></li>
-    <li><a th:href="@{/admin/events/new}">New event</a></li>
+<nav th:fragment="admin-nav" class="container mt-3" aria-label="Administration">
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link" th:href="@{/admin/events}"
+         th:classappend="${currentPath == '/admin/events'} ? 'active'"
+         th:aria-current="${currentPath == '/admin/events'} ? 'page'">Manage events</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" th:href="@{/admin/events/new}"
+         th:classappend="${currentPath == '/admin/events/new'} ? 'active'"
+         th:aria-current="${currentPath == '/admin/events/new'} ? 'page'">New event</a>
+    </li>
   </ul>
 </nav>
 
-<footer th:fragment="footer">
-  <p th:text="${association.name}">Association</p>
-  <ul>
-    <li><a th:href="@{/contact}">Contact us</a></li>
-    <li><a th:href="@{/login}">Member login</a></li>
-  </ul>
+<footer th:fragment="footer" class="mt-auto border-top bg-body-tertiary">
+  <div class="container py-3 d-flex flex-wrap justify-content-between align-items-center gap-2">
+    <span class="text-body-secondary" th:text="|© ${association.name}|">© Association</span>
+    <ul class="nav">
+      <li class="nav-item"><a class="nav-link px-2 text-body-secondary" th:href="@{/contact}">Contact us</a></li>
+      <li class="nav-item"><a class="nav-link px-2 text-body-secondary" th:href="@{/login}">Member login</a></li>
+    </ul>
+  </div>
 </footer>
 
 </body>
