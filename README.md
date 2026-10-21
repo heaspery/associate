@@ -21,15 +21,15 @@ The people running an association are:
 - Easy to use, with as little complexity as possible.
 - Easy to hand over when the team changes.
 - Cheap, to match the associations' means.
-- Local.
+- Hosted locally, so the data stays local.
 - Easy to adapt for several associations.
   
 ## Features (MOSCOW)
 
-- Must : Home page, events page, contact, authentication, event management, custom domain name and dedicated email address.
-- Should	: Event registration, registration admin dashboard. 
-- Could	: Integrated payments, project showcase, newsletter.
-- Won't	: Drag-and-drop editor.
+- Must: Home page, events page, contact, authentication, event management, custom domain name and dedicated email address.
+- Should: Event registration, registration admin dashboard.
+- Could: Integrated payments, project showcase, newsletter.
+- Won't: Drag-and-drop editor.
 
 ## What each feature covers:
 
@@ -45,8 +45,8 @@ The people running an association are:
 
 The project is built in iterations.
 
-1. Must: home, events and contact pages, authentication, and adding, editing and deleting events.
-2. Should: event registration.
+1. Must: home, events and contact pages, authentication, adding, editing and deleting events, and a custom domain name with a dedicated email address.
+2. Should: event registration and the registration admin dashboard.
 3. Could: payments, project showcase, newsletter.
 
 
