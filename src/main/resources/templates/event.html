@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Event')}"></head>
+<body class="d-flex flex-column min-vh-100">
+<header th:replace="~{fragments/layout :: header}"></header>
+<main class="container py-5">
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a th:href="@{/events}">Events</a></li>
+      <li class="breadcrumb-item active" aria-current="page" th:text="|Event #${id}|">Event</li>
+    </ol>
+  </nav>
+
+  <div class="row g-5">
+    <article class="col-lg-8">
+      <h1 class="display-6 fw-bold mb-3" th:text="|Event #${id}|">Event title</h1>
+      <p class="lead">A short summary of the event, to make people want to come.</p>
+      <p>Here you will find the full description: the programme, what to bring, who it is for and anything
+        participants need to know before they arrive.</p>
+    </article>
+
+    <aside class="col-lg-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h2 class="h5 card-title mb-3">Practical information</h2>
+          <dl class="mb-0">
+            <dt>Date</dt>
+            <dd class="text-body-secondary">Event date</dd>
+            <dt>Time</dt>
+            <dd class="text-body-secondary">Start and end time</dd>
+            <dt>Location</dt>
+            <dd class="text-body-secondary mb-0">Event location</dd>
+          </dl>
+        </div>
+        <div class="card-footer bg-transparent">
+          <a class="btn btn-outline-primary w-100" th:href="@{/contact}">A question? Contact us</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <a class="btn btn-link px-0 mt-4" th:href="@{/events}">← Back to all events</a>
+
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>

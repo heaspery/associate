@@ -1,3 +1,11 @@
 spring:
   application:
     name: associate
+
+association:
+  name: Association's name
+  description: A quick description to explain what you do in your association. It must be concise and clear.
+  values:
+    - Friendliness
+    - Respect for nature
+    - Inclusivity

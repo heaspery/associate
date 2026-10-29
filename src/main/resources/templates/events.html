@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head('Events')}"></head>
+<body class="d-flex flex-column min-vh-100">
+<header th:replace="~{fragments/layout :: header}"></header>
+<main class="container py-5">
+
+  <div class="col-lg-8 mb-5">
+    <h1 class="display-5 fw-bold">Events</h1>
+    <p class="lead text-body-secondary">Meetings, outings and celebrations: find out what is coming up and come
+      along. Everyone is welcome.</p>
+  </div>
+
+  <section class="mb-5">
+    <h2 class="h3 fw-bold mb-4">Upcoming events</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <span class="badge text-bg-primary mb-2">Saturday 14 November</span>
+            <h3 class="h5 card-title">Annual general meeting</h3>
+            <p class="card-text text-body-secondary">Review the year together and vote on next year's projects.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-sm btn-outline-primary" th:href="@{/events/{id}(id=1)}">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <span class="badge text-bg-primary mb-2">Sunday 6 December</span>
+            <h3 class="h5 card-title">Winter get-together</h3>
+            <p class="card-text text-body-secondary">A friendly afternoon to meet members old and new.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-sm btn-outline-primary" th:href="@{/events/{id}(id=2)}">Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <span class="badge text-bg-primary mb-2">Saturday 16 January</span>
+            <h3 class="h5 card-title">Volunteer workshop</h3>
+            <p class="card-text text-body-secondary">Discover how you can help and find the role that suits you.</p>
+          </div>
+          <div class="card-footer bg-transparent border-0 pb-3">
+            <a class="btn btn-sm btn-outline-primary" th:href="@{/events/{id}(id=3)}">Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="h3 fw-bold mb-4">Past events</h2>
+    <div class="list-group">
+      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+         th:href="@{/events/{id}(id=4)}">
+        Summer picnic
+        <span class="text-body-secondary small">June</span>
+      </a>
+      <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+         th:href="@{/events/{id}(id=5)}">
+        Spring clean-up day
+        <span class="text-body-secondary small">April</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+<footer th:replace="~{fragments/layout :: footer}"></footer>
+</body>
+</html>
